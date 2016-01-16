@@ -54,7 +54,7 @@ var MontyHallSimulation = (function () {
         };
 
         this.reset = function () {
-
+            count = goats = cars = 0;
         };
 
         this.status = function () {
