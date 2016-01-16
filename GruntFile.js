@@ -5,13 +5,13 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         watch: {
-            files: 'src/<%= pkg.name %>.js',
+            files: '<%= pkg.name %>.js',
             tasks: ['jshint'],
         },
 
         jshint: {
             options: {jshintrc: '.jshintrc'},
-            src: 'src/<%= pkg.name %>.js'
+            src: '<%= pkg.name %>.js'
         },
     });
 
