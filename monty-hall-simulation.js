@@ -52,14 +52,26 @@ var MontyHallSimulation = (function () {
 
             running = true;
             _run();
+
+            if (options.on_start) {
+                options.on_start.call(this);
+            }
         };
 
         this.stop = function () {
             running = false;
+
+            if (options.on_stop) {
+                options.on_stop.call(this);
+            }
         };
 
         this.reset = function () {
             count = goats = cars = 0;
+
+            if (options.on_reset) {
+                options.on_reset.call(this);
+            }
         };
 
         this.status = function () {
