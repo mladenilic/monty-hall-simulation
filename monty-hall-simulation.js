@@ -21,7 +21,7 @@ var MontyHallSimulation = (function () {
                 count++;
 
                 if (running) {
-                    setTimeout(loop, 1);
+                    setTimeout(loop, options.interval || 1);
                 }
             };
 
