@@ -12,6 +12,8 @@ var MontyHallSimulation = (function () {
 
         var running = false;
 
+        options = options || {};
+
         var _run = function () {
             var loop = function () {
                 var lopp = _setupDoors();
