@@ -19,7 +19,12 @@ var MontyHallSimulation = (function () {
                 var lopp = _setupDoors();
                 var guess = _getRandomDoorIndex();
 
-                doors[guess] ? cars++ : goats++;
+                if (options.change_door) {
+                    doors[guess] ? goats++ : cars++;
+                } else {
+                    doors[guess] ? cars++ : goats++;
+                }
+
                 count++;
 
                 if (running) {
