@@ -7,6 +7,7 @@ var MontyHallSimulation = (function () {
             throw new Error('MontyHallSimulation() must be called with new');
         }
 
+        var self = this;
         var doors = [0, 0, 0];
         var count = 0, cars = 0, goats = 0;
 
@@ -28,7 +29,7 @@ var MontyHallSimulation = (function () {
                 count++;
 
                 if (options.on_update) {
-                    options.on_update.call(this, count, goats, cars);
+                    options.on_update.call(self, count, goats, cars);
                 }
 
                 if (running) {
@@ -49,7 +50,7 @@ var MontyHallSimulation = (function () {
             doors[_getRandomDoorIndex()] = 1;
         }
 
-        this.start = function () {
+        self.start = function () {
             if (running) {
                 return;
             }
@@ -58,23 +59,23 @@ var MontyHallSimulation = (function () {
             _run();
 
             if (options.on_start) {
-                options.on_start.call(this);
+                options.on_start.call(self);
             }
         };
 
-        this.stop = function () {
+        self.stop = function () {
             running = false;
 
             if (options.on_stop) {
-                options.on_stop.call(this);
+                options.on_stop.call(self);
             }
         };
 
-        this.reset = function () {
+        self.reset = function () {
             count = goats = cars = 0;
 
             if (options.on_reset) {
-                options.on_reset.call(this);
+                options.on_reset.call(self);
             }
         };
     };
