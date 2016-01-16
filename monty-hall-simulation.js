@@ -3,10 +3,6 @@ var MontyHallSimulation = (function () {
 
     return function (options) {
 
-        if (!new.target) {
-            throw new Error('MontyHallSimulation() must be called with new');
-        }
-
         var self = this;
         var doors = [0, 0, 0];
         var count = 0, cars = 0, goats = 0;
@@ -48,7 +44,7 @@ var MontyHallSimulation = (function () {
             doors = [0, 0, 0];
 
             doors[_getRandomDoorIndex()] = 1;
-        }
+        };
 
         self.start = function () {
             if (running) {
