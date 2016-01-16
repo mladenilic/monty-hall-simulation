@@ -27,6 +27,10 @@ var MontyHallSimulation = (function () {
 
                 count++;
 
+                if (options.on_update) {
+                    options.on_update.call(this, count, goats, cars);
+                }
+
                 if (running) {
                     setTimeout(loop, options.interval || 1);
                 }
@@ -72,10 +76,6 @@ var MontyHallSimulation = (function () {
             if (options.on_reset) {
                 options.on_reset.call(this);
             }
-        };
-
-        this.status = function () {
-            console.log(count, cars, goats, cars / count * 100);
         };
     };
 }());
